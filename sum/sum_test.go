@@ -35,4 +35,25 @@ func TestSum(t *testing.T) {
 			t.Errorf("sum(-1, -1) = %d; want -2", got)
 		}
 	})
+
+	t.Run("should multi parameters", func(t *testing.T) {
+		want := 0
+
+		got := sum([]int{}...)
+
+		if got != want {
+			t.Errorf("got %d want %d", got, want)
+		}
+	})
+
+	t.Run("including sign integer", func(t *testing.T) {
+		want := 7
+		xs := []int{2, 3, 3, -1}
+
+		got := sum(xs...) // got := sum([]int{2, 3, 3, -1}...) // ... = (2, 3, 3, -1)
+
+		if got != want {
+			t.Errorf("got %d want %d", got, want)
+		}
+	})
 }
