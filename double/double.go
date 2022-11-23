@@ -29,6 +29,6 @@ func (p *Phonebook) Find(query Queryer, firstname, lastname string) (string, err
 	if person == nil {
 		return "", ErrNoPersonFound
 	}
-	
+
 	return person.Phone, nil
 }
